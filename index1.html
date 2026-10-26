@@ -463,44 +463,70 @@ button {
   animation: appear .45s ease;
 }
 
-/* SECCIÓN FINAL CON COLORES CORREGIDOS */
+/* Sección final en tonos azules */
 .final {
   background:
     radial-gradient(ellipse at 50% 0,#346ca7,transparent 55%),
     linear-gradient(145deg,#0b2145,#123e6c 60%,#242c68);
   color: #f1f9ff;
+  isolation: isolate;
+  overflow: hidden;
 }
 
 .final .section-head {
   position: relative;
+  z-index: 1;
+  padding: clamp(24px,4vw,42px);
+  border: 1px solid #8fd8ff55;
+  border-radius: 28px;
+  background: linear-gradient(135deg,#102e55dd,#194c78cc);
+  box-shadow: 0 18px 45px #061a3a55;
+  max-width: 760px;
 }
 
 .final .kicker {
-  color: #b9e8ff;
+  display: inline-block;
+  color: #c9efff;
   text-shadow: 0 1px 8px #071f4380;
+  background: #b8e7ff18;
+  border: 1px solid #9ed8ff70;
+  border-radius: 999px;
+  padding: 8px 14px;
+  letter-spacing: .14em;
 }
 
 .final h2 {
-  color: #8fd8ff;
+  color: #d6f3ff;
   text-shadow: 0 3px 14px #061b3d80;
+  font-size: clamp(2.1rem,5vw,3.8rem);
 }
 
 .final .section-head p {
   max-width: 650px;
-  margin: 12px auto;
-  color: #e3f4ff;
+  margin: 14px auto;
+  color: #f0f9ff;
+  font-size: clamp(1rem,2vw,1.12rem);
 }
 
 .final .section-head .signature {
-  margin-top: 28px;
+  margin-top: 26px;
   color: #a9e2ff;
   font-style: italic;
+  font-size: 1.08rem;
 }
 
 .final .btn.light {
-  background: #d9f0ff;
-  color: #123e6c;
-  border: 1px solid #9ed8ff;
+  margin-top: 2px;
+  background: linear-gradient(135deg,#e5f7ff,#a9dcff);
+  color: #10365d;
+  border: 1px solid #d4f0ff;
+  box-shadow: 0 10px 28px #061b3d70;
+}
+
+.final .btn.light:hover {
+  background: #fff;
+  color: #174a7c;
+  box-shadow: 0 14px 32px #061b3d88;
 }
 
 .footer {
@@ -540,23 +566,13 @@ button {
 }
 
 @keyframes float {
-  0%,100% {
-    transform: translateY(0) rotate(-8deg);
-  }
-  50% {
-    transform: translateY(-18px) rotate(8deg);
-  }
+  0%,100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
 }
 
 @keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media(max-width:700px) {
@@ -662,19 +678,16 @@ button {
 }
 
 @media(prefers-reduced-motion:reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation: none !important;
-    transition: none !important;
+  *,*::before,*::after {
+    scroll-behavior: auto!important;
+    animation: none!important;
+    transition: none!important;
   }
 }
 </style>
 </head>
 
 <body>
-
 <header class="topbar">
   <div class="brand">💙 Un detalle para Kenini</div>
   <nav aria-label="Navegación principal">
@@ -688,7 +701,6 @@ button {
 </header>
 
 <main>
-
 <section class="hero" id="inicio">
   <span class="heart-float one">♡</span>
   <span class="heart-float two">✦</span>
@@ -726,22 +738,10 @@ button {
   </div>
 
   <div class="countdown" aria-live="polite">
-    <div class="timebox">
-      <strong id="days">00</strong>
-      <span>DÍAS</span>
-    </div>
-    <div class="timebox">
-      <strong id="hours">00</strong>
-      <span>HORAS</span>
-    </div>
-    <div class="timebox">
-      <strong id="minutes">00</strong>
-      <span>MINUTOS</span>
-    </div>
-    <div class="timebox">
-      <strong id="seconds">00</strong>
-      <span>SEGUNDOS</span>
-    </div>
+    <div class="timebox"><strong id="days">00</strong><span>DÍAS</span></div>
+    <div class="timebox"><strong id="hours">00</strong><span>HORAS</span></div>
+    <div class="timebox"><strong id="minutes">00</strong><span>MINUTOS</span></div>
+    <div class="timebox"><strong id="seconds">00</strong><span>SEGUNDOS</span></div>
   </div>
 </section>
 
@@ -781,29 +781,25 @@ button {
 
   <div class="gallery">
     <div class="photo">
-      <img src="recuerdo1.jpg" alt="Recuerdo de nuestra amistad" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <img src="recuerdo1.jpg" alt="Recuerdo de nuestra amistad" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
       <div class="placeholder" style="display:none">📷<small>Sube recuerdo1.jpg junto a index.html</small></div>
       <p>Los momentos que se guardan en el corazón. 💙</p>
     </div>
 
     <div class="photo">
-      <img src="recuerdo2.jpg" alt="Un momento especial de amistad" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <img src="recuerdo2.jpg" alt="Un momento especial de amistad" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
       <div class="placeholder" style="display:none">📷<small>Sube recuerdo2.jpg junto a index.html</small></div>
       <p>Una sonrisa que ilumina el día. ✨</p>
     </div>
 
     <div class="photo">
-      <img src="recuerdo3.jpg" alt="Una sonrisa para recordar" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <img src="recuerdo3.jpg" alt="Una sonrisa para recordar" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
       <div class="placeholder" style="display:none">📷<small>Sube recuerdo3.jpg junto a index.html</small></div>
       <p>Detalles sencillos que significan mucho. ♡</p>
     </div>
 
     <div class="photo">
-      <img src="recuerdo4.jpg" alt="Un instante inolvidable entre amistades" loading="lazy"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <img src="recuerdo4.jpg" alt="Un instante inolvidable entre amistades" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
       <div class="placeholder" style="display:none">📷<small>Sube recuerdo4.jpg junto a index.html</small></div>
       <p>Recuerdos bonitos que viven para siempre. 💙</p>
     </div>
@@ -869,40 +865,43 @@ button {
   </div>
 </section>
 
-<!-- SECCIÓN FINAL CON LOS COLORES CORREGIDOS -->
 <section class="section final" id="final">
   <div class="section-head">
     <div class="kicker">✦ Para una amistad especial ✦</div>
-
     <h2>💙 Feliz Día de la Amistad 💙</h2>
-
     <p>Que nunca te falten razones para sonreír.</p>
-
     <p>Gracias por ser una persona especial, por las risas y por los recuerdos compartidos.</p>
-
     <p class="signature">Hecho con mucho cariño 💌</p>
   </div>
 
   <a class="btn light" href="#inicio">↑ Volver al inicio</a>
 </section>
-
 </main>
 
-<footer class="footer">
-  Hecho con cariño para Kenini 💙
-</footer>
+<footer class="footer">Hecho con cariño para Kenini 💙</footer>
 
 <script>
-// Cuenta regresiva para el 26 de octubre
+// Cuenta regresiva para el próximo 26 de octubre.
 const ahora = new Date();
 
 let fechaEspecial = new Date(
-  ahora.getFullYear(), 9, 26, 0, 0, 0
+  ahora.getFullYear(),
+  9,
+  26,
+  0,
+  0,
+  0
 );
 
+// Si el 26 de octubre ya pasó, cuenta hacia el próximo año.
 if (fechaEspecial.getTime() <= ahora.getTime()) {
   fechaEspecial = new Date(
-    ahora.getFullYear() + 1, 9, 26, 0, 0, 0
+    ahora.getFullYear() + 1,
+    9,
+    26,
+    0,
+    0,
+    0
   );
 }
 
@@ -912,9 +911,9 @@ function actualizarCuenta() {
   if (diff < 0) diff = 0;
 
   const d = Math.floor(diff / 86400000);
-  const h = Math.floor(diff % 86400000 / 3600000);
-  const m = Math.floor(diff % 3600000 / 60000);
-  const s = Math.floor(diff % 60000 / 1000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
 
   document.getElementById('days').textContent =
     String(d).padStart(2, '0');
@@ -932,7 +931,7 @@ function actualizarCuenta() {
 actualizarCuenta();
 setInterval(actualizarCuenta, 1000);
 
-// Abrir y cerrar la carta
+// Abrir y cerrar la carta.
 const envelopeBtn = document.getElementById('envelopeBtn');
 const letter = document.getElementById('letter');
 
@@ -945,7 +944,7 @@ envelopeBtn.addEventListener('click', () => {
     open ? '💙' : '💌';
 });
 
-// Reproducir una canción a la vez
+// Evita que se reproduzcan varias canciones al mismo tiempo.
 document.querySelectorAll('.playlist-audio').forEach(audio => {
   audio.addEventListener('play', () => {
     document.querySelectorAll('.playlist-audio').forEach(other => {
@@ -956,7 +955,7 @@ document.querySelectorAll('.playlist-audio').forEach(audio => {
   });
 });
 
-// Abrir y cerrar la sorpresa
+// Abrir y cerrar la sorpresa.
 document.getElementById('surpriseBtn').addEventListener('click', () => {
   const msg = document.getElementById('surpriseMessage');
 
