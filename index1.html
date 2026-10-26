@@ -487,25 +487,42 @@
       </div>
     </section>
 
-    <section id="musica">
-      <div class="eyebrow">♫ Una canción para ti</div>
-      <h2>Nuestra canción</h2>
-      <p class="intro">
-        Una melodía especial para acompañar este detalle.
-      </p>
-      <div class="music-card">
-  <div class="disc">♫</div>
-  <h3>Belladona 💙</h3>
-  <p>Que esta canción te recuerde los momentos bonitos y te regale una sonrisa. 💙</p>
+    <section class="section" id="musica">
+  <div class="section-head">
+    <div class="kicker">♫ Canciones para ti</div>
+    <h2>Nuestra música</h2>
+    <p>Elige la canción que quieras escuchar. 💙</p>
+  </div>
 
-  <audio controls preload="none">
-    <source src="Belladona.mp3" type="audio/mpeg">
-    Tu navegador no puede reproducir este audio.
-  </audio>
+  <div class="music-card">
+    <div class="disc">♫</div>
 
-  <div class="music-note">Nuestra canción: Belladona.mp3 💙</div>
-</div>
-    </section>
+    <h3>1. Belladona 💙</h3>
+    <p>Una canción especial para ti.</p>
+    <audio class="playlist-audio" controls preload="none">
+      <source src="Belladona.mp3" type="audio/mpeg">
+    </audio>
+
+    <hr>
+
+    <h3>2. Nuestra segunda canción 🎶</h3>
+    <p>Otra melodía especial.</p>
+    <audio class="playlist-audio" controls preload="none">
+      <source src="cancion2.mp3" type="audio/mpeg">
+    </audio>
+
+    <hr>
+
+    <h3>3. Nuestra tercera canción ✨</h3>
+    <p>Una canción más para nuestros recuerdos.</p>
+    <audio class="playlist-audio" controls preload="none">
+      <source src="cancion3.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-note">Canciones para Kenini 💙</div>
+  </div>
+</section>
+   
 
     <section id="sorpresa">
       <div class="eyebrow">🎁 Una última sorpresa</div>
@@ -524,6 +541,7 @@
           <p>¡Nunca dejes de brillar! 💙 ✨ 💙</p>
         </div>
       </div>
+     
     </section>
 
     <section class="final">
@@ -581,5 +599,15 @@
         : "✨ Abrir sorpresa";
     });
   </script>
+  
+document.querySelectorAll('.playlist-audio').forEach(audio => {
+  audio.addEventListener('play', () => {
+    document.querySelectorAll('.playlist-audio').forEach(otra => {
+      if (otra !== audio) {
+        otra.pause();
+      }
+    });
+  });
+});
 </body>
 </html>
