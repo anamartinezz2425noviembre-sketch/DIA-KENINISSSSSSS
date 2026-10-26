@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123765">
+  <title>Feliz Día, Kenini 💙</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #183654;
+      background: linear-gradient(135deg, #eaf7ff, #dceaff, #f4f2ff);
+      line-height: 1.7;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 15px;
+      background: #10294f;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #9fdcff;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 50px 20px;
+      color: white;
+      background:
+        radial-gradient(ellipse at top right, #7778ca, transparent 40%),
+        linear-gradient(145deg, #0b2145, #174f85, #343a83);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 9vw, 6rem);
+      line-height: 1.1;
+      margin: 20px 0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.15rem;
+    }
+
+    .eyebrow {
+      color: #a8dcff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 30px;
+      padding: 13px 24px;
+      background: linear-gradient(135deg, #55a6ed, #2852a0);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+
+    .btn.light {
+      background: white;
+      color: #1d568f;
+    }
+
+    section {
+      padding: 75px 20px;
+      text-align: center;
+      scroll-margin-top: 80px;
+    }
+
+    section:nth-of-type(even) {
+      background: #ffffff80;
+    }
+
+    h2 {
+      color: #174a7c;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.2;
+      margin: 12px 0 20px;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #466783;
+    }
+
+    .card {
+      max-width: 780px;
+      margin: 25px auto 0;
+      padding: clamp(22px, 5vw, 45px);
+      border: 1px solid #c7e4fa;
+      border-radius: 24px;
+      background: #ffffffdf;
+      box-shadow: 0 16px 40px #184b801f;
+    }
+
+    .card p {
+      margin: 12px 0;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+
+    .timebox {
+      background: white;
+      border: 1px solid #c8e6ff;
+      border-radius: 18px;
+      padding: 20px 8px;
+    }
+
+    .timebox strong {
+      display: block;
+      color: #2768a5;
+      font-size: clamp(1.6rem, 5vw, 3rem);
+    }
+
+    .timebox span {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    .letter-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+      align-items: center;
+    }
+
+    .envelope {
+      width: 220px;
+      max-width: 100%;
+      height: 160px;
+      border: 1px solid #70b3ec;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #9fd6ff, #4c8fd0);
+      color: white;
+      font-size: 65px;
+      box-shadow: 0 12px 30px #17436a30;
+      cursor: pointer;
+    }
+
+    .letter {
+      display: none;
+      text-align: left;
+    }
+
+    .letter.open {
+      display: block;
+      animation: aparecer 0.5s ease;
+    }
+
+    .letter h3,
+    .music-card h3 {
+      color: #245d93;
+      margin-bottom: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
+    .photo {
+      padding: 9px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px #174f8520;
+    }
+
+    .photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .photo p {
+      padding: 10px 4px 3px;
+    }
+
+    .music-card {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .disc {
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 35px;
+      background: radial-gradient(circle, #eaf7ff 0 12%,
+        #6eb2e9 13% 18%, #1c568c 19% 58%,
+        #2d75b2 59% 65%, #15365e 66%);
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .gift {
+      font-size: 100px;
+      margin: 15px;
+    }
+
+    .surprise-message {
+      display: none;
+      max-width: 560px;
+      margin: 20px auto 0;
+      padding: 22px;
+      border-radius: 18px;
+      background: #e8f5ff;
+      color: #174a7c;
+    }
+
+    .surprise-message.show {
+      display: block;
+      animation: aparecer 0.5s ease;
+    }
+
+    .final {
+      color: white;
+      background: linear-gradient(145deg, #0b2145, #174f85, #242c68) !important;
+    }
+
+    .final h2 {
+      color: white;
+    }
+
+    .final p {
+      margin: 12px auto;
+      max-width: 650px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #b9d8f2;
+      background: #081b35;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .letter-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        gap: 10px;
+      }
+
+      section {
+        padding: 55px 16px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <strong>💙 Un detalle para Kenini</strong>
+    <nav>
+      <a href="#mensaje">Mensaje</a>
+      <a href="#cuenta">Cuenta</a>
+      <a href="#carta">Carta</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#musica">Música</a>
+      <a href="#sorpresa">Sorpresa</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <div class="eyebrow">Un día muy especial</div>
+        <h1>💙 Feliz Día<br>Kenini 💙</h1>
+        <p>
+          Esta página fue creada especialmente para ti,
+          con cariño, recuerdos y pequeñas sorpresas.
+        </p>
+        <a class="btn light" href="#mensaje">💌 Comenzar</a>
+        <p>♡ Desliza hacia abajo ♡</p>
+      </div>
+    </section>
+
+    <section id="mensaje">
+      <div class="eyebrow">♡ Un mensaje para ti ♡</div>
+      <h2>Querida Kenini...</h2>
+      <p class="intro">
+        Hoy quería hacer algo diferente: un pequeño lugar
+        creado especialmente para ti.
+      </p>
+      <div class="card">
+        <p>
+          Porque hay personas que hacen que nuestros días
+          sean más bonitos simplemente estando presentes.
+        </p>
+        <p>
+          Quería recordarte lo especial que eres y lo mucho
+          que mereces sonreír.
+        </p>
+        <p>
+          Ojalá cada día te traiga motivos nuevos para ser feliz,
+          personas sinceras a tu lado y recuerdos bonitos.
+        </p>
+        <p>──── ♡ ────</p>
+      </div>
+    </section>
+
+    <section id="cuenta">
+      <div class="eyebrow">⌛ Un momento especial</div>
+      <h2>Cada segundo cuenta</h2>
+      <p class="intro">
+        Una cuenta regresiva para esperar ese día especial.
+      </p>
+      <div class="countdown">
+        <div class="timebox">
+          <strong id="days">00</strong><span>DÍAS</span>
+        </div>
+        <div class="timebox">
+          <strong id="hours">00</strong><span>HORAS</span>
+        </div>
+        <div class="timebox">
+          <strong id="minutes">00</strong><span>MINUTOS</span>
+        </div>
+        <div class="timebox">
+          <strong id="seconds">00</strong><span>SEGUNDOS</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="carta">
+      <div class="eyebrow">💌 Un pequeño detalle</div>
+      <h2>Tengo algo que decirte...</h2>
+      <p class="intro">Pulsa el sobre para descubrir tu carta.</p>
+
+      <div class="letter-layout">
+        <div>
+          <button class="envelope" id="envelopeBtn"
+            aria-label="Abrir o cerrar la carta"
+            aria-expanded="false">💌</button>
+          <p>Toca el sobre para abrirlo ♡</p>
+        </div>
+
+        <article class="card letter" id="letter">
+          <h3>💙 Para Kenini</h3>
+          <p>Querida Kenini:</p>
+          <p>
+            Quería hacer algo especial para ti, algo que pudiera
+            guardar un poquito de todos los sentimientos que tengo.
+          </p>
+          <p>
+            Espero que al abrir esta página puedas sentir todo
+            el cariño que puse en cada detalle.
+          </p>
+          <p>
+            Gracias por tu forma de ser, por las sonrisas y por
+            esos pequeños momentos que hacen la vida más bonita.
+          </p>
+          <p>Nunca olvides lo especial que eres. 💙</p>
+          <p>Con muchísimo cariño,<br><strong>Para siempre ♡</strong></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="eyebrow">📷 Nuestros recuerdos</div>
+      <h2>Momentos que merecen quedarse</h2>
+      <p class="intro">
+        Pequeños recuerdos que hacen especial cada momento.
+      </p>
+
+      <div class="gallery">
+        <div class="photo">
+          <img src="fotos/recuerdo1.jpg" alt="Nuestro recuerdo uno">
+          <p>Los momentos que se guardan en el corazón. 💙</p>
+        </div>
+        <div class="photo">
+          <img src="fotos/recuerdo2.jpg" alt="Nuestro recuerdo dos">
+          <p>Una sonrisa que ilumina el día. ✨</p>
+        </div>
+        <div class="photo">
+          <img src="fotos/recuerdo3.jpg" alt="Nuestro recuerdo tres">
+          <p>Detalles sencillos que significan mucho. ♡</p>
+        </div>
+        <div class="photo">
+          <img src="fotos/recuerdo4.jpg" alt="Nuestro recuerdo cuatro">
+          <p>Recuerdos bonitos que viven para siempre. 💙</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="musica">
+      <div class="eyebrow">♫ Una canción para ti</div>
+      <h2>Nuestra canción</h2>
+      <p class="intro">
+        Una melodía especial para acompañar este detalle.
+      </p>
+      <div class="card music-card">
+        <div class="disc">♫</div>
+        <h3>Una melodía para Kenini</h3>
+        <p>Que esta canción te regale una sonrisa. 💙</p>
+        <audio controls preload="none">
+          <source src="musica/cancion.mp3" type="audio/mpeg">
+          Tu navegador no puede reproducir este audio.
+        </audio>
+      </div>
+    </section>
+
+    <section id="sorpresa">
+      <div class="eyebrow">🎁 Una última sorpresa</div>
+      <h2>¿Quieres descubrir algo?</h2>
+      <p class="intro">Hay un último mensaje esperando por ti.</p>
+
+      <div class="card">
+        <div class="gift">🎁</div>
+        <button class="btn" id="surpriseBtn">✨ Abrir sorpresa</button>
+        <div class="surprise-message" id="surpriseMessage">
+          <h3>💙 ¡Sorpresa, Kenini!</h3>
+          <p>
+            Mereces cosas bonitas, personas que te cuiden y
+            muchísimas razones para sonreír.
+          </p>
+          <p>¡Nunca dejes de brillar! 💙 ✨ 💙</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="eyebrow">✦ Para alguien especial ✦</div>
+      <h2>💙 Feliz Día Kenini 💙</h2>
+      <p>Que nunca te falten razones para sonreír.</p>
+      <p>Que siempre tengas personas que te quieran y te cuiden.</p>
+      <p><em>Hecho con mucho cariño 💌</em></p>
+      <a class="btn light" href="#inicio">↑ Volver al inicio</a>
+    </section>
+  </main>
+
+  <footer>Hecho con cariño para Kenini 💙</footer>
+
+  <script>
+    // Cambia esta fecha por la fecha especial que quieras.
+    const fechaEspecial = new Date("2027-02-14T00:00:00");
+
+    function actualizarCuenta() {
+      let diferencia = fechaEspecial.getTime() - Date.now();
+
+      if (diferencia < 0) diferencia = 0;
+
+      const dias = Math.floor(diferencia / 86400000);
+      const horas = Math.floor((diferencia % 86400000) / 3600000);
+      const minutos = Math.floor((diferencia % 3600000) / 60000);
+      const segundos = Math.floor((diferencia % 60000) / 1000);
+
+      document.getElementById("days").textContent = dias;
+      document.getElementById("hours").textContent = horas;
+      document.getElementById("minutes").textContent = minutos;
+      document.getElementById("seconds").textContent = segundos;
+    }
+
+    actualizarCuenta();
+    setInterval(actualizarCuenta, 1000);
+
+    const envelopeBtn = document.getElementById("envelopeBtn");
+    const letter = document.getElementById("letter");
+
+    envelopeBtn.addEventListener("click", function () {
+      const abierta = letter.classList.toggle("open");
+      envelopeBtn.setAttribute("aria-expanded", String(abierta));
+      envelopeBtn.textContent = abierta ? "💙" : "💌";
+    });
+
+    const surpriseBtn = document.getElementById("surpriseBtn");
+    const surpriseMessage = document.getElementById("surpriseMessage");
+
+    surpriseBtn.addEventListener("click", function () {
+      const abierta = surpriseMessage.classList.toggle("show");
+
+      surpriseBtn.textContent = abierta
+        ? "💙 Cerrar sorpresa"
+        : "✨ Abrir sorpresa";
+    });
+  </script>
+</body>
+</html>
